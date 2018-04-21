@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FitPartner.LoginPage">
+    <ContentPage.Content>
+        <StackLayout x:Name="layout">
+            <Label x:Name="welcomeLabel" TextColor="AntiqueWhite" Text="Welcome to FitPartner!" HorizontalOptions="Center" VerticalOptions="StartAndExpand"
+                   IsVisible="True" FontSize="Large" Opacity="0"/>
+
+            <Label x:Name="typeNameLabel" TextColor="AntiqueWhite" Text="Please type your name below!" HorizontalOptions="Center" VerticalOptions="Start"
+                   IsVisible="True" FontSize="Medium" Opacity="0"/>
+
+            <Entry x:Name="nameField" TextColor="Azure" HorizontalOptions="Center" VerticalOptions="Center" Placeholder="your name here" PlaceholderColor="Coral"
+                   Opacity="0" FontSize="Medium" Completed="OnCompleted"/>
+
+            <Button x:Name="facebookLoginButton" HorizontalOptions="Center" VerticalOptions="End" Image="facebookLoginImage.png" Clicked="FacebookLoginButtonOnClick"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

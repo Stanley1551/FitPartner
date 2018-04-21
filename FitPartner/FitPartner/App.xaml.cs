@@ -12,8 +12,15 @@ namespace FitPartner
 		public App ()
 		{
 			InitializeComponent();
-
-			MainPage = new FitPartner.MainPage();
+            if(Current.Properties.ContainsKey("FirstUse"))
+            {
+                MainPage = new NavigationPage(new MainPage());
+            }
+			else
+            {
+                Current.Properties["FirstUse"] = false;
+                MainPage = new NavigationPage(new LoginPage());
+            }
 		}
 
 		protected override void OnStart ()

@@ -12,6 +12,19 @@ namespace FitPartner
 		public MainPage()
 		{
 			InitializeComponent();
+
+            Name = Application.Current.Properties["username"].ToString();
 		}
+
+        public MainPage(string name)
+        {
+            InitializeComponent();
+            
+            Name = name;
+        }
+
+        public string Name { get { return name; } set { if(name == value) return; name = value; nameText.Text = value; } }
+
+        private string name;
 	}
 }
