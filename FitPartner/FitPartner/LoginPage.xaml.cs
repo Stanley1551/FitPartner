@@ -1,10 +1,14 @@
-﻿using System;
+﻿using Android.Net;
+using Plugin.Connectivity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Android.Content.PM;
+using Android.Content;
 
 namespace FitPartner
 {
@@ -41,8 +45,26 @@ namespace FitPartner
 
         async void FacebookLoginButtonOnClick(object sender, EventArgs e)
         {
-            //await Navigation.PushAsync(new WebPage());
-            await this.Navigation.PushAsync(new WebPage("https://www.facebook.com/v2.12/dialog/oauth?client_id=214187729343795&response_type=token&redirect_uri=https://www.facebook.com/connect/login_success.html"));
+            if(CheckConnection())
+            {
+                //await Navigation.PushAsync(new WebPage());
+                await this.Navigation.PushAsync(new WebPage("https://www.facebook.com/v2.12/dialog/oauth?client_id=214187729343795&response_type=token&redirect_uri=https://www.facebook.com/connect/login_success.html"));
+            }
+            else
+            {
+                var resp = await DisplayAlert("Alert", "No internet connection detected!","OK","Open WiFi settings...");
+
+                if (resp == false)
+                {
+                    Forms.Context.StartActivity(new Intent(Android.Provider.Settings.ActionWifiSettings));
+                }
+                
+            }
+        }
+
+        private bool CheckConnection()
+        {
+            return CrossConnectivity.Current.IsConnected;
         }
     }
 }
