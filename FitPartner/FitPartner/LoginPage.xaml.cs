@@ -9,6 +9,9 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Android.Content.PM;
 using Android.Content;
+using SQLite;
+using System.IO;
+using FitPartner.Droid.Database;
 
 namespace FitPartner
 {
@@ -21,8 +24,6 @@ namespace FitPartner
             BackgroundImage = "login_bg.png";
             Title = "FitPartner";
             Task.Run(async () => await BeginFading());
-            
-
         }
 
         private async Task BeginFading()
@@ -38,9 +39,11 @@ namespace FitPartner
 
             Application.Current.Properties["username"] = name;
 
+            InitializeDB();
+
             Navigation.PushAsync(new MainPage(name));
 
-            
+            FlushNavigationStack();
         }
 
         async void FacebookLoginButtonOnClick(object sender, EventArgs e)
@@ -49,6 +52,7 @@ namespace FitPartner
             {
                 //await Navigation.PushAsync(new WebPage());
                 await this.Navigation.PushAsync(new WebPage("https://www.facebook.com/v2.12/dialog/oauth?client_id=214187729343795&response_type=token&redirect_uri=https://www.facebook.com/connect/login_success.html"));
+                FlushNavigationStack();
             }
             else
             {
@@ -65,6 +69,20 @@ namespace FitPartner
         private bool CheckConnection()
         {
             return CrossConnectivity.Current.IsConnected;
+        }
+
+        private void FlushNavigationStack()
+        {
+            Navigation.RemovePage(Navigation.NavigationStack.FirstOrDefault());
+        }
+
+        private void InitializeDB()
+        {
+            using(DatabaseHandler dbHandler = new DatabaseHandler())
+            {
+                dbHandler.Db.CreateTable<User>();
+                dbHandler.Db.Insert(new User(Application.Current.Properties["username"].ToString(), DateTime.MinValue));
+            }
         }
     }
 }

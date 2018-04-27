@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using FitPartner.Droid.Database;
 
 namespace FitPartner
 {
@@ -62,7 +63,7 @@ namespace FitPartner
 
         private async Task GetProfileInfoAsync(string token)
         {
-            var requestUrl = "https://graph.facebook.com/v2.7/me/" + "?fields=name" + "&access_token=" + token;
+            var requestUrl = "https://graph.facebook.com/v2.7/me/" + "?fields=name,birthday,email,gender" + "&access_token=" + token;
 
             var httpClient = new HttpClient();
 
@@ -73,12 +74,25 @@ namespace FitPartner
             JToken jToken = JToken.Parse(userJson);
 
             var name = jToken["name"];
+            var bDay = jToken["birthday"];
+            var email = jToken["email"];
 
-            //await Navigation.PopAsync(); Navigation.
+            using(DatabaseHandler dbHandler = new DatabaseHandler())
+            {
+                dbHandler.Db.CreateTable<User>();
+                dbHandler.Db.InsertOrReplace(new User(name.ToString(), bDay==null?DateTime.MinValue:ParseBday(bDay), email == null ? string.Empty : email.ToString()));
+            }
 
-            Application.Current.Properties.Add("username",(string) name);
+            Application.Current.Properties.Add("username", (string)name);
 
             await Navigation.PushAsync(new MainPage());
+        }
+
+        private DateTime ParseBday(JToken bday)
+        {
+            var date = bday.ToString().Split('/');
+
+            return new DateTime(int.Parse(date[2]), int.Parse(date[0]), int.Parse(date[1]));
         }
 
         private string url;
