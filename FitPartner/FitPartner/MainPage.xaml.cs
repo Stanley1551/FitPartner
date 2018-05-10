@@ -26,5 +26,10 @@ namespace FitPartner
         public string Name { get { return name; } set { if(name == value) return; name = value; nameText.Text = value; } }
 
         private string name;
-	}
+
+        private void VidTrainerButton_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new VideoPlayerPage());
+        }
+    }
 }

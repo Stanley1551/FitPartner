@@ -11,7 +11,7 @@
                    IsVisible="True" FontSize="Medium" Opacity="0"/>
 
             <Entry x:Name="nameField" TextColor="Azure" HorizontalOptions="Center" VerticalOptions="Center" Placeholder="your name here" PlaceholderColor="Coral"
-                   Opacity="0" FontSize="Medium" Completed="OnCompleted"/>
+                   Opacity="0" FontSize="Medium" Completed="OnCompleted"  />
 
             <Button x:Name="facebookLoginButton" HorizontalOptions="Center" VerticalOptions="End" Image="facebookLoginImage.png" Clicked="FacebookLoginButtonOnClick"/>
         </StackLayout>

@@ -1,9 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<forms:ContentPage
+    xmlns:forms="clr-namespace:Xamarin.Forms;assembly=Xamarin.Forms.Core" xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:FitPartner"
-             x:Class="FitPartner.MainPage">
-
+    x:Class="FitPartner.MainPage">
+    <ContentPage.Content>
     <Grid>
         
         <Grid.RowDefinitions>
@@ -11,11 +12,11 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
+            <forms:ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         
-        <Label x:Name="nameText" Grid.Row="0" Grid.Column="1" />
+        <Label x:Name="nameText" Grid.Row="0" Grid.Column="0"/>
+        <Button x:Name="VidTrainerButton" Text="Test" Clicked="VidTrainerButton_Clicked"/>
     </Grid>
-        
-</ContentPage>
+        </ContentPage.Content>
+</forms:ContentPage>
