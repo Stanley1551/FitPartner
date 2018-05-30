@@ -12,7 +12,7 @@ namespace FitPartner
 		public MainPage()
 		{
 			InitializeComponent();
-
+            BackgroundImage = "menu_bg.png";
             Name = Application.Current.Properties["username"].ToString();
 		}
 

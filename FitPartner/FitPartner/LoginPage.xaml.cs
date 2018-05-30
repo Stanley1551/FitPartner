@@ -44,6 +44,11 @@ namespace FitPartner
             Navigation.PushAsync(new MainPage(name));
 
             FlushNavigationStack();
+
+            var tapImage = new TapGestureRecognizer();
+            tapImage.Tapped += FacebookLoginButtonOnClick;
+
+            fbLoginButton.GestureRecognizers.Add(tapImage);
         }
 
         async void FacebookLoginButtonOnClick(object sender, EventArgs e)

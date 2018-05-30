@@ -13,7 +13,7 @@
             <Entry x:Name="nameField" TextColor="Azure" HorizontalOptions="Center" VerticalOptions="Center" Placeholder="your name here" PlaceholderColor="Coral"
                    Opacity="0" FontSize="Medium" Completed="OnCompleted"  />
 
-            <Button x:Name="facebookLoginButton" HorizontalOptions="Center" VerticalOptions="End" Image="facebookLoginImage.png" Clicked="FacebookLoginButtonOnClick"/>
+            <Image x:Name="fbLoginButton" Source="facebookLoginImage.png" VerticalOptions="End" HorizontalOptions="Center"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

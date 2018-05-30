@@ -74,7 +74,13 @@
   <ItemGroup>
     <Compile Include="Database\DatabaseHandler.cs" />
     <Compile Include="Database\User.cs" />
+    <Compile Include="Enums\ExcerciseEnum.cs" />
     <Compile Include="MainActivity.cs" />
+    <Compile Include="Models\ISimpleEx.cs" />
+    <Compile Include="Models\IStationaryEx.cs" />
+    <Compile Include="Models\RunEx.cs" />
+    <Compile Include="Models\SimpleEx.cs" />
+    <Compile Include="Models\StationaryEx.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -103,6 +109,9 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\facebookLoginImage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\menu_bg.png" />
   </ItemGroup>
   <Import Project="..\FitPartner\FitPartner.projitems" Label="Shared" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
