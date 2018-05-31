@@ -7,14 +7,14 @@
              Title="Main Menu">
     <ContentPage.Content>
 
-        <StackLayout>
-       <Label x:Name="nameText" VerticalOptions="Start" HorizontalOptions="Start"/>
+        <StackLayout Spacing="30">
+       <Label x:Name="nameText" VerticalOptions="Start" HorizontalOptions="Start" />
        <Button x:Name="VidTrainerButton" Text="Exercise browser" Clicked="VidTrainerButton_Clicked" HorizontalOptions="Center"
-               VerticalOptions="Center" BorderColor="Aqua"/>
-       <Button x:Name="ProfileButton" Text="My profile" HorizontalOptions="Center"
-               VerticalOptions="Center" Clicked="ProfileButtonClicked"/>
-            <Button x:Name="StatButton" Text="Analytics" HorizontalOptions="Center"
-               VerticalOptions="Center" Clicked="StatButtonClicked"></Button>
+               VerticalOptions="Center" BorderColor="Aqua" BorderRadius="90" Opacity="90" BackgroundColor="AliceBlue"/>
+            <Button x:Name="ProfileButton" Text="My profile" HorizontalOptions="Center"  Opacity="90"
+               VerticalOptions="Center" Clicked="ProfileButtonClicked" BorderRadius="30" BackgroundColor="AliceBlue"/>
+            <Button x:Name="StatButton" Text="Analytics" HorizontalOptions="Center"  Opacity="90"
+               VerticalOptions="Center" Clicked="StatButtonClicked" BorderRadius="30" BackgroundColor="AliceBlue"></Button>
                
         </StackLayout>
     </ContentPage.Content>

@@ -2,7 +2,30 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="FitPartner.VideoPlayerPage"
-             xmlns:o="clr-namespace:Octane.Xamarin.Forms.VideoPlayer;assembly=Octane.Xamarin.Forms.VideoPlayer">
-    <o:VideoPlayer x:Name="Player" Source="https://r7---sn-h5bt5guxax3vh-hj9l.googlevideo.com/videoplayback?ei=4KkNW_KBBMbFgAfKkovYBw&amp;id=o-AF-M941N0KV0HhbTxFLIKVyoxUTLGYsHtHECfy_GOwzx&amp;mime=video%2Fmp4&amp;sparams=dur%2Cei%2Cid%2Cinitcwndbps%2Cip%2Cipbits%2Citag%2Clmt%2Cmime%2Cmm%2Cmn%2Cms%2Cmv%2Cpl%2Cratebypass%2Crequiressl%2Csource%2Cexpire&amp;expire=1527643712&amp;itag=22&amp;ipbits=0&amp;key=yt6&amp;ip=5.187.177.193&amp;c=WEB&amp;source=youtube&amp;ms=au%2Crdu&amp;pl=20&amp;mv=m&amp;mt=1527622018&amp;requiressl=yes&amp;lmt=1507184423174632&amp;signature=141B94CC5ACEAD0659F5D997688E7E741CE38BD6.302B07B08EE91B583DB7C5A758669B37B69C0237&amp;ratebypass=yes&amp;initcwndbps=842500&amp;fvip=18&amp;dur=76.904&amp;mn=sn-h5bt5guxax3vh-hj9l%2Csn-c0q7lney&amp;mm=31%2C29"
-                   AutoPlay="True" DisplayControls="True"/>
+             xmlns:o="clr-namespace:Octane.Xamarin.Forms.VideoPlayer;assembly=Octane.Xamarin.Forms.VideoPlayer"
+             BackgroundColor="Black"
+             Title="Video Trainer">
+    <StackLayout>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <o:VideoPlayer x:Name="Player" Grid.Column="0" Grid.Row="0"
+                       AutoPlay="True" DisplayControls="True"/>
+
+            <StackLayout Grid.Column="0" Grid.Row="1">
+                
+                <Label Text="Exercise: " HorizontalOptions="Start" VerticalOptions="Center" FontSize="Large" TextColor="AntiqueWhite"/>
+                <Label x:Name="ExerciseTitle" HorizontalOptions="Center" VerticalOptions="Center" FontSize="Large" TextColor="AntiqueWhite"/>
+
+            </StackLayout>
+        </Grid>
+        
+        
+    </StackLayout>
 </ContentPage>

@@ -125,6 +125,24 @@
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\bmiTable.png" />
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Media\LegRaise.mp4" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Media\MountainClimer.mp4" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Media\Plank.mp4" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Media\Pushup.mp4" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Media\Sideplank.mp4" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Media\Situp.mp4" />
+  </ItemGroup>
   <Import Project="..\FitPartner\FitPartner.projitems" Label="Shared" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>
