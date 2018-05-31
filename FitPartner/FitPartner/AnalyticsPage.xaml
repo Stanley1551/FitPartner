@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FitPartner.AnalyticsPage"
+             BackgroundColor="SandyBrown"
+             Title="Analytics">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Your BMI is:" FontSize="Large" HorizontalOptions="Center" VerticalOptions="Center" FontAttributes="Italic"/>
+            <Label Opacity="0" FontSize="Large" x:Name="BMI" FontAttributes="Bold" VerticalOptions="Center" HorizontalOptions="Center"/>
+            <Label x:Name="Resolution" FontSize="Medium" VerticalOptions="Center" HorizontalOptions="Center" Opacity="0"/>
+            <Image Source="bmiTable.png" HorizontalOptions="Center" VerticalOptions="Center"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

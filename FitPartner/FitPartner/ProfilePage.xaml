@@ -2,7 +2,8 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="FitPartner.ProfilePage" 
-             BackgroundImage="profile_bg.png">
+             BackgroundImage="profile_bg.png"
+             Title="My Profile">
     <ContentPage.Content>
         <StackLayout>
             
@@ -60,6 +61,16 @@
                 <Label x:Name="weightText" FontSize="Large" VerticalOptions="Start" HorizontalOptions="Center" Grid.Column="0" Grid.Row="0"/>
                 <Image x:Name="weightEditBtn" Source="edit_btn.png" Grid.Column="1" Grid.Row="0" />
             </Grid>
+
+            <Label Text="Gender" FontSize="Medium" VerticalOptions="Start" HorizontalOptions="Start"/>
+            <Picker x:Name="GenderPicker" Title="Select gender..." SelectedIndexChanged="genderPicked" Opacity="0">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Male</x:String>
+                        <x:String>Female</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

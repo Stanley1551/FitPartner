@@ -26,6 +26,10 @@ namespace FitPartner
                 Birthday = user.Birth;
                 Height = user.Height;
                 Weight = user.Weight;
+                if(user.Male != null)
+                {
+                    GenderPicker.SelectedIndex = (user.Male == true ? 0 : 1);
+                }
 
                 Task.Run(async () => await BeginFading());
                 RegisterRecognizers();
@@ -38,6 +42,12 @@ namespace FitPartner
         private DateTime birthday;
         private int height;
         private int weight;
+        private bool male;
+
+        public bool Male {
+            get { return male; }
+            set { if(value == male) return; male = value; }
+        }
 
         public int Weight {
             get { return weight; }
@@ -64,7 +74,7 @@ namespace FitPartner
             {
                 using(DatabaseHandler dbHandler = new DatabaseHandler())
                 {
-                    int dbRes = dbHandler.Db.Update(new User(1,Name, result.SelectedDate, String.Empty, Height, Weight));
+                    int dbRes = dbHandler.Db.Update(new User(1,Name, result.SelectedDate, String.Empty, Height, Weight, Male));
                     Birthday = result.SelectedDate;
                 }
             }
@@ -72,13 +82,13 @@ namespace FitPartner
 
         async void HeightEditButtonOnClick(object sender, EventArgs e)
         {
-            PromptResult result = await UserDialogs.Instance.PromptAsync("Your current height:","Please set your current height!","OK","Cancel","Ex.: 65",InputType.Number);
+            PromptResult result = await UserDialogs.Instance.PromptAsync("Your current height:","Please set your current height!","OK","Cancel","Ex.: 180",InputType.Number);
             if(result.Ok)
             {
                 using(DatabaseHandler dbHandler = new DatabaseHandler())
                 {
-                    int dbRes = dbHandler.Db.Update(new User(1, Name, Birthday, String.Empty, int.Parse(result.Text), Weight));
-                    Height = int.Parse(result.Text);
+                    int dbRes = dbHandler.Db.Update(new User(1, Name, Birthday, String.Empty, int.Parse(result.Text), Weight, Male));
+                    Height = int.Parse(result.Text.Trim());
                 }
             }
 
@@ -86,14 +96,24 @@ namespace FitPartner
 
         async void WeightEditButtonOnClick(object sender, EventArgs e)
         {
-            PromptResult result = await UserDialogs.Instance.PromptAsync("Your current weight:", "Please set your current weight!", "OK", "Cancel", "Ex.: 180", InputType.Number);
+            PromptResult result = await UserDialogs.Instance.PromptAsync("Your current weight:", "Please set your current weight!", "OK", "Cancel", "Ex.: 70", InputType.Number);
             if(result.Ok)
             {
                 using(DatabaseHandler dbHandler = new DatabaseHandler())
                 {
-                    int dbRes = dbHandler.Db.Update(new User(1, Name, Birthday, String.Empty, Height, int.Parse(result.Text)));
-                    Weight = int.Parse(result.Text);
+                    int dbRes = dbHandler.Db.Update(new User(1, Name, Birthday, String.Empty, Height, int.Parse(result.Text), Male));
+                    Weight = int.Parse(result.Text.Trim());
                 }
+            }
+        }
+
+        async void genderPicked(object sender, EventArgs e)
+        {
+            var index = GenderPicker.SelectedIndex;
+
+            using(DatabaseHandler dbHandler = new DatabaseHandler())
+            {
+                int dbRes = dbHandler.Db.Update(new User(1, Name, Birthday, String.Empty, Height, Weight, index == 1 ? false : true));
             }
         }
 
@@ -103,6 +123,7 @@ namespace FitPartner
             await bdayGrid.FadeTo(1, 1000);
             await heightGrid.FadeTo(1, 1000);
             await weightGrid.FadeTo(1, 1000);
+            await GenderPicker.FadeTo(1, 1000);
         }
 
         private void RegisterRecognizers()

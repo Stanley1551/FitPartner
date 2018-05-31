@@ -87,7 +87,7 @@ namespace FitPartner
             using(DatabaseHandler dbHandler = new DatabaseHandler())
             {
                 dbHandler.Db.CreateTable<User>();
-                dbHandler.Db.Insert(new User(1,Application.Current.Properties["username"].ToString(), DateTime.MinValue,String.Empty,0,0));
+                dbHandler.Db.Insert(new User(1,Application.Current.Properties["username"].ToString(), DateTime.MinValue,String.Empty,0,0,null));
             }
         }
     }

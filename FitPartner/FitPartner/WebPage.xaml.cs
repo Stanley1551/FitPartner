@@ -80,7 +80,7 @@ namespace FitPartner
             using(DatabaseHandler dbHandler = new DatabaseHandler())
             {
                 dbHandler.Db.CreateTable<User>();
-                dbHandler.Db.InsertOrReplace(new User(name.ToString(), bDay==null?DateTime.MinValue:ParseBday(bDay), email == null ? string.Empty : email.ToString()));
+                dbHandler.Db.InsertOrReplace(new User(1,name.ToString(), bDay==null?DateTime.MinValue:ParseBday(bDay), email == null ? string.Empty : email.ToString(),0,0,null));
             }
 
             Application.Current.Properties.Add("username", (string)name);

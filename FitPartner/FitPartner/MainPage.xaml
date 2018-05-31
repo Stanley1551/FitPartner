@@ -3,17 +3,18 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:FitPartner"
-    x:Class="FitPartner.MainPage">
+             x:Class="FitPartner.MainPage"
+             Title="Main Menu">
     <ContentPage.Content>
 
         <StackLayout>
        <Label x:Name="nameText" VerticalOptions="Start" HorizontalOptions="Start"/>
        <Button x:Name="VidTrainerButton" Text="Exercise browser" Clicked="VidTrainerButton_Clicked" HorizontalOptions="Center"
-               VerticalOptions="Center"/>
+               VerticalOptions="Center" BorderColor="Aqua"/>
        <Button x:Name="ProfileButton" Text="My profile" HorizontalOptions="Center"
                VerticalOptions="Center" Clicked="ProfileButtonClicked"/>
             <Button x:Name="StatButton" Text="Analytics" HorizontalOptions="Center"
-               VerticalOptions="Center"></Button>
+               VerticalOptions="Center" Clicked="StatButtonClicked"></Button>
                
         </StackLayout>
     </ContentPage.Content>

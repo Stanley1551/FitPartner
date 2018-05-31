@@ -34,7 +34,7 @@ namespace FitPartner.Droid.Database
             Email = email;
         }
 
-        public User(int ID, string username, DateTime birth, string email, int height, int weight)
+        public User(int ID, string username, DateTime birth, string email, int height, int weight, bool? male)
         {
             this.ID = ID;
             Username = username;
@@ -43,6 +43,7 @@ namespace FitPartner.Droid.Database
             Email = email;
             Height = height;
             Weight = weight;
+            Male = male;
         }
 
         public bool IsInitiativeUser()
@@ -67,5 +68,7 @@ namespace FitPartner.Droid.Database
         public int Height { get; set; }
         [Column("Weight")]
         public int Weight { get; set; }
+        [Column("Male")]
+        public bool? Male { get; set; }
     }
 }

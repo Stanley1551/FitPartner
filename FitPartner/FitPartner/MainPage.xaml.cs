@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using FitPartner.Droid.Database;
+using Acr.UserDialogs;
 
 namespace FitPartner
 {
@@ -35,6 +37,23 @@ namespace FitPartner
         private void ProfileButtonClicked(object sender, EventArgs e)
         {
             Navigation.PushAsync(new ProfilePage());
+        }
+
+        private void StatButtonClicked(object sender, EventArgs e)
+        {
+            using(DatabaseHandler dbHandler = new DatabaseHandler())
+            {
+                User user = dbHandler.Db.Get<User>(1);
+                if (user.Birth == null || user.Birth == DateTime.MinValue
+                    || user.Height <= 0
+                    || user.Weight <= 0)
+                {
+                    Task.Run(async () => await UserDialogs.Instance.AlertAsync("Mandatory fields are missing! Please fill your data on \"My profile\" page.", "Warning", "OK")); 
+                    
+                    return;
+                }
+            }
+            Navigation.PushAsync(new AnalyticsPage());
         }
     }
 }
