@@ -17,7 +17,7 @@ namespace FitPartner.Droid.Models
     {
         private int reps;
         private int quantity;
-        private SimpleExcercise simpleID;
+        private SimpleExercise simpleID;
 
         public int Reps {
             get {
@@ -39,7 +39,7 @@ namespace FitPartner.Droid.Models
                     quantity = value;
             }
         }
-        public SimpleExcercise SimpleID {
+        public SimpleExercise SimpleID {
             get {
                 return simpleID;
             }

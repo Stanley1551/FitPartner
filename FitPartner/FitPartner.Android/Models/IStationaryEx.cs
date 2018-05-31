@@ -17,7 +17,7 @@ namespace FitPartner.Droid.Models
     {
         TimeSpan Time { get; set; }
         int Reps { get; set; }
-        StationaryExcercise StatID { get; set; }
+        StationaryExercise StatID { get; set; }
 
     }
 }

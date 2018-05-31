@@ -8,10 +8,10 @@
 
         <StackLayout>
        <Label x:Name="nameText" VerticalOptions="Start" HorizontalOptions="Start"/>
-       <Button x:Name="VidTrainerButton" Text="Excercise browser" Clicked="VidTrainerButton_Clicked" HorizontalOptions="Center"
+       <Button x:Name="VidTrainerButton" Text="Exercise browser" Clicked="VidTrainerButton_Clicked" HorizontalOptions="Center"
                VerticalOptions="Center"/>
        <Button x:Name="ProfileButton" Text="My profile" HorizontalOptions="Center"
-               VerticalOptions="Center"/>
+               VerticalOptions="Center" Clicked="ProfileButtonClicked"/>
             <Button x:Name="StatButton" Text="Analytics" HorizontalOptions="Center"
                VerticalOptions="Center"></Button>
                

@@ -17,6 +17,6 @@ namespace FitPartner.Droid.Models
     {
         int Reps { get; set; }
         int Quantity { get; set; }
-        SimpleExcercise SimpleID { get; set; }
+        SimpleExercise SimpleID { get; set; }
     }
 }

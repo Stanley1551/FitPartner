@@ -31,5 +31,10 @@ namespace FitPartner
         {
             Navigation.PushAsync(new VideoPlayerPage());
         }
+
+        private void ProfileButtonClicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new ProfilePage());
+        }
     }
 }

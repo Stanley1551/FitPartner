@@ -17,10 +17,10 @@ namespace FitPartner.Droid.Models
     {
         private TimeSpan time;
         private int reps;
-        private StationaryExcercise stationaryID;
+        private StationaryExercise stationaryID;
 
         public TimeSpan Time { get { return time; } set { if (value != time) time = value; } }
         public int Reps { get { return reps; } set { if(value != reps) reps = value; } }
-        public StationaryExcercise StatID { get { return stationaryID; } set {if(value != stationaryID) stationaryID = value; } }
+        public StationaryExercise StatID { get { return stationaryID; } set {if(value != stationaryID) stationaryID = value; } }
     }
 }

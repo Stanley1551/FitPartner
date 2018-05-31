@@ -7,6 +7,7 @@ using Android.Views;
 using Android.Widget;
 using Android.OS;
 using Octane.Xamarin.Forms.VideoPlayer.Android;
+using Acr.UserDialogs;
 
 namespace FitPartner.Droid
 {
@@ -21,7 +22,10 @@ namespace FitPartner.Droid
             base.OnCreate(bundle);
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
+
             FormsVideoPlayer.Init();
+            UserDialogs.Init(this);
+
             LoadApplication(new App());
         }
     }

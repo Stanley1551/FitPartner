@@ -24,6 +24,11 @@ namespace FitPartner
             BackgroundImage = "login_bg.png";
             Title = "FitPartner";
             Task.Run(async () => await BeginFading());
+
+            var tapImage = new TapGestureRecognizer();
+            tapImage.Tapped += FacebookLoginButtonOnClick;
+
+            fbLoginButton.GestureRecognizers.Add(tapImage);
         }
 
         private async Task BeginFading()
@@ -44,11 +49,7 @@ namespace FitPartner
             Navigation.PushAsync(new MainPage(name));
 
             FlushNavigationStack();
-
-            var tapImage = new TapGestureRecognizer();
-            tapImage.Tapped += FacebookLoginButtonOnClick;
-
-            fbLoginButton.GestureRecognizers.Add(tapImage);
+            
         }
 
         async void FacebookLoginButtonOnClick(object sender, EventArgs e)
@@ -86,7 +87,7 @@ namespace FitPartner
             using(DatabaseHandler dbHandler = new DatabaseHandler())
             {
                 dbHandler.Db.CreateTable<User>();
-                dbHandler.Db.Insert(new User(Application.Current.Properties["username"].ToString(), DateTime.MinValue));
+                dbHandler.Db.Insert(new User(1,Application.Current.Properties["username"].ToString(), DateTime.MinValue,String.Empty,0,0));
             }
         }
     }

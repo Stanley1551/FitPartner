@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FitPartner.ProfilePage" 
+             BackgroundImage="profile_bg.png">
+    <ContentPage.Content>
+        <StackLayout>
+            
+            <Label Text="Name" FontSize="Medium" VerticalOptions="Start" HorizontalOptions="Start"/>
+            <Grid x:Name="nameGrid" Opacity="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="25"/>
+                </Grid.ColumnDefinitions>
+
+                <Label x:Name="nameText" FontSize="Large" VerticalOptions="Start" HorizontalOptions="Center" Grid.Column="0" Grid.Row="0"/>
+            </Grid>
+            
+            <Label Text="Birthday" FontSize="Medium" VerticalOptions="Start" HorizontalOptions="Start"/>
+            <Grid x:Name="bdayGrid" Opacity="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="25"/>
+                </Grid.ColumnDefinitions>
+
+                <Label x:Name="birthdayText" FontSize="Large" VerticalOptions="Start" HorizontalOptions="Center" Grid.Column="0" Grid.Row="0"/>
+                <Image x:Name="bdayEditBtn" Source="edit_btn.png" Grid.Column="1" Grid.Row="0" />
+            </Grid>
+            
+            <Label Text="Height" FontSize="Medium" VerticalOptions="Start" HorizontalOptions="Start"/>
+            <Grid x:Name="heightGrid" Opacity="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="25"/>
+                </Grid.ColumnDefinitions>
+
+                <Label x:Name="heightText" FontSize="Large" VerticalOptions="Start" HorizontalOptions="Center" Grid.Column="0" Grid.Row="0"/>
+                <Image x:Name="heightEditBtn" Source="edit_btn.png" Grid.Column="1" Grid.Row="0" />
+            </Grid>
+            
+            <Label Text="Weight" FontSize="Medium" VerticalOptions="Start" HorizontalOptions="Start"/>
+            <Grid x:Name="weightGrid" Opacity="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="25"/>
+                </Grid.ColumnDefinitions>
+
+                <Label x:Name="weightText" FontSize="Large" VerticalOptions="Start" HorizontalOptions="Center" Grid.Column="0" Grid.Row="0"/>
+                <Image x:Name="weightEditBtn" Source="edit_btn.png" Grid.Column="1" Grid.Row="0" />
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

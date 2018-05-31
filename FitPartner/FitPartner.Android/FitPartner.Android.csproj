@@ -47,6 +47,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Acr.UserDialogs">
+      <Version>7.0.1</Version>
+    </PackageReference>
     <PackageReference Include="Newtonsoft.Json">
       <Version>11.0.2</Version>
     </PackageReference>
@@ -74,7 +77,7 @@
   <ItemGroup>
     <Compile Include="Database\DatabaseHandler.cs" />
     <Compile Include="Database\User.cs" />
-    <Compile Include="Enums\ExcerciseEnum.cs" />
+    <Compile Include="Enums\ExerciseEnum.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Models\ISimpleEx.cs" />
     <Compile Include="Models\IStationaryEx.cs" />
@@ -112,6 +115,12 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\menu_bg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\profile_bg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\edit_btn.png" />
   </ItemGroup>
   <Import Project="..\FitPartner\FitPartner.projitems" Label="Shared" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
